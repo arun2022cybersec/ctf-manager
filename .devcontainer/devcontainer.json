@@ -4,17 +4,17 @@
     "cpus": 4
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "pip install -r requirements.txt && python manage.py migrate",
-  "postCreateCommand": "cp .env.example .env",
+  // "updateContentCommand": "pip install -r requirements.txt && python manage.py migrate",
+  // "postCreateCommand": "cp .env.example .env",
   "postAttachCommand": {
-    "server": "python manage.py runserver"
+    "server": "python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && cd django_manager && python manage.py runserver"
   },
   "customizations": {
-    "codespaces": {
-      "openFiles": [
-        ""
-      ]
-    },
+    // "codespaces": {
+    //   "openFiles": [
+    //     "*.html"
+    //   ]
+    // },
     "vscode": {
       "extensions": [
         "ms-python.python"
@@ -27,5 +27,7 @@
       "onAutoForward": "openPreview"
     }
   },
-  "forwardPorts": [8000]
+  "forwardPorts": [
+    8000
+  ]
 }
